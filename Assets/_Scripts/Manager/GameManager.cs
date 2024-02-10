@@ -8,7 +8,7 @@ namespace _Scripts.Manager
         #region Variables
         [Header("Ground spawner")]
         [SerializeField] private List<GameObject> grounds;
-        [SerializeField] private float spawnPosition = 20f;
+        [SerializeField] private float spawnPosition = 40f;
         #endregion
 
         #region Builtin Methods
@@ -19,7 +19,7 @@ namespace _Scripts.Manager
         #endregion
 
         #region Custom Methods
-        private void SpawnGround(Vector3 _spawnPosittion)
+        public void SpawnGround(Vector3 _spawnPosittion)
         {
             int _groundID = Random.Range(0, grounds.Count);
 
