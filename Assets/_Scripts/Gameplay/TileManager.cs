@@ -1,4 +1,3 @@
-using _Scripts.Manager;
 using UnityEngine;
 
 namespace _Scripts.Gameplay
@@ -10,17 +9,14 @@ namespace _Scripts.Gameplay
         #region Variables
         [Header("Tile parameters")]
         [SerializeField] private float speed = 3f;
-        [SerializeField] private Transform spawnGround;
 
         private Rigidbody _rb;
-        private GameManager _gm;
         #endregion
 
         #region Builtin Methods
         private void Start()
         {
             _rb = GetComponent<Rigidbody>();
-            _gm = GetComponent<GameManager>();
         }
 
         private void FixedUpdate()
@@ -37,12 +33,7 @@ namespace _Scripts.Gameplay
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.transform.tag == "Player")
-            {
-                _gm.GetComponent<GameManager>().SpawnGround(spawnGround.position);
-            }
-
-            if(other.transform.tag == "Destroy_Ground")
+            if (other.transform.tag == "Destroy_Ground")
             {
                 Destroy(gameObject);
             }
