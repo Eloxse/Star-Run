@@ -46,10 +46,9 @@ namespace _Scripts.Player
 
         private void Movement(float _horizontalMovement)
         {
-            _pi.horizontalMovement = moveSpeed * Time.deltaTime;
+            _horizontalMovement = _pi.horizontalMovement * moveSpeed * Time.deltaTime;
 
-            Vector3 _targetVelocity = new Vector2(_horizontalMovement, _rb.velocity.y);
-            _rb.velocity = Vector3.SmoothDamp(_rb.velocity, _targetVelocity, ref velocity, 0.05f);
+            _rb.velocity = new Vector2(_horizontalMovement, _rb.velocity.y);
         }
         #endregion
     }
