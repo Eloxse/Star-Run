@@ -33,6 +33,7 @@ namespace _Scripts.Gameplay
             {
                 SpawnGround(new Vector3(0, 0, spawnGround));
             }
+            //Spawn a new ground each time it collides
         }
         #endregion
     }

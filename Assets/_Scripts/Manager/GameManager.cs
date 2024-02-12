@@ -31,7 +31,7 @@ namespace _Script.Manager
         private UIManager _ui;
 
         //private bool _isLosed;
-        private int _score;
+        public int _score;
         #endregion
 
         #region Builtin Methods
@@ -64,6 +64,7 @@ namespace _Script.Manager
         #region Custom Methods
         public void AddScore()
         {
+            Debug.Log("ee");
             _score += scoreValue;
 
             _ui.UpdateScoreText(_score);

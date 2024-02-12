@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using _Script.Manager;
 using UnityEngine;
 
 namespace _Scripts.Player
@@ -13,8 +15,10 @@ namespace _Scripts.Player
 
         private Rigidbody _rb;
         private PlayerInputs _pi;
+        private GameManager _gm;
 
         private Vector3 velocity = Vector3.zero;
+        private int score;
         #endregion
 
         #region Builtin Methods
@@ -22,6 +26,7 @@ namespace _Scripts.Player
         {
             _rb = GetComponent<Rigidbody>();
             _pi = GetComponent<PlayerInputs>();
+            _gm = GetComponent<GameManager>();
         }
 
         private void Update()
@@ -49,6 +54,14 @@ namespace _Scripts.Player
             _horizontalMovement = _pi.horizontalMovement * moveSpeed * Time.deltaTime;
 
             _rb.velocity = new Vector2(_horizontalMovement, _rb.velocity.y);
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.transform.tag == "Coin")
+            {
+                _gm.AddScore();
+            }
         }
         #endregion
     }
